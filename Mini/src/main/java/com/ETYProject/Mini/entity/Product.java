@@ -1,5 +1,5 @@
 package com.ETYProject.Mini.entity;
-
+// Entity -> Repository -> Service -> Controller
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

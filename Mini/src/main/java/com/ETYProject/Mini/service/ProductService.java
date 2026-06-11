@@ -17,6 +17,9 @@ public class ProductService {
     }
 
     public Product createProduct(String name, Long price, Long stock){
+        if(price < 0){
+            throw new IllegalArgumentException(("상품 가격은 0원 이상이여야 합니다."));
+        }
         Product product = new Product(name, price, stock);
         return productRepository.save(product);
     }
