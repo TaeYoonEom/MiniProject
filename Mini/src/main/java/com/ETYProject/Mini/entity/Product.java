@@ -13,7 +13,7 @@ import lombok.Setter;
 @Setter
 @Table(name="product")
 @NoArgsConstructor
-public class Product {
+public class Product extends Timestamped{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

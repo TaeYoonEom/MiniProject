@@ -34,6 +34,10 @@ public class ProductService {
         Product product = productRepository.findById(id).orElseThrow(()
                 -> new IllegalArgumentException("수정하려는 상품이 없습니다."));
 
+        if(price < 0){
+            throw new IllegalArgumentException(("상품 가격은 0원 이상이여야 합니다."));
+        }
+
         product.setName(name);
         product.setPrice(price);
         product.setStock(stock);
@@ -48,5 +52,4 @@ public class ProductService {
         productRepository.deleteById(id);
         return product;
     }
-
 }
