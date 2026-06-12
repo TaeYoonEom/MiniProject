@@ -19,7 +19,7 @@ public class OrderService {
     }
 
     public Order createOrder(Long product_id, Long orderCount){
-        Product product = productRepository.findById(product_id).orElseThrow(()
+        Product product = productRepository.findWithLockById(product_id).orElseThrow(()
                 -> new IllegalArgumentException("구매하고자 하는 상품이 없습니다."));
 
         if(product.getStock() < orderCount){
